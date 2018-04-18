@@ -11,7 +11,7 @@ pipeline {
 			post {
 				success {
 					echo 'Now archiving...'
-					archiveArtifacts artifacts: '**/*.war'
+					archiveArtifacts artifacts: '**/target/*.war'
 				}
 			}
 		}
@@ -26,7 +26,7 @@ pipeline {
 					input message: 'Approve PRODUCTION Deployment?'
 				}
 
-				build job: 'Deploy-to-Prod'
+				build job: 'deploy-to-Prod'
 			}
 			post {
 				success {
